@@ -1,16 +1,18 @@
 package dev.kirstree.catstick;
+import dev.kirstree.catstick.handlers.Events;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CatStick extends JavaPlugin {
 
     @Override
     public void onEnable(){
-        System.out.println("&a" + "CatStick Plugin Enabling...");
+        Bukkit.getLogger().info("&a" + "CatStick Plugin Enabling...");
     }
 
     @Override
     public void onDisable(){
-        System.out.println("&c" + "CatStick Plugin Shutting down...");
+        Bukkit.getLogger().info("&c" + "CatStick Plugin Shutting down...");
     }
 
 }
