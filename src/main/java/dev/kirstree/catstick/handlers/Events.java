@@ -1,6 +1,7 @@
 package dev.kirstree.catstick.handlers;
 
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,7 +20,7 @@ public class Events implements Listener {
         Inventory inv = player.getInventory();
 
         ItemMeta meta = catstick.getItemMeta();
-        meta.setDisplayName("&c" + "Catstick");
+        meta.setDisplayName(ChatColor.RED + ChatColor.BOLD.toString() + "Catstick");
         catstick.setItemMeta(meta);
 
         inv.setItem(4, catstick);
