@@ -40,26 +40,28 @@ public class Events implements Listener {
         inv.setItem(4, Catstick);
     }
 
+    @EventHandler
     public void onPlayerInteraction(PlayerInteractEvent event) {
         Player player = (Player) event.getPlayer();
+
+        //Bukkit.getLogger().info("Some code is working :P");
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
                 event.getAction().equals(Action.RIGHT_CLICK_AIR) ||
                 player.getInventory().getItemInMainHand().getType() == Material.STICK &&
                         event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-            Bukkit.getLogger().info("Some code is working :P");
-
-            Location loc = player.getEyeLocation();
+            Location loc = player.getLocation();
             Cat blackcat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
             blackcat.setCatType(Cat.Type.ALL_BLACK);
             blackcat.setCustomName(ChatColor.DARK_PURPLE + "EDDIE");
             blackcat.setCustomNameVisible(true);
-            blackcat.setVelocity(new Vector(5, 2, 3));
+            blackcat.setVelocity(new Vector(3, 0, 3));
 
         }
     }
 
+//    @EventHandler
 //    public void onPlayerDoubleJump(PlayerToggleFlightEvent event){
 //        Player player = (Player) event.getPlayer();
 //        GameMode gameMode = player.getGameMode();
