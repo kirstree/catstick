@@ -6,7 +6,7 @@
 
     <groupId>dev.kirstree</groupId>
     <artifactId>CatStick</artifactId>
-    <version>CatStick-1.0.0-SNAPSHOT.jar</version>
+    <version>1.0.0-SNAPSHOT.jar</version>
 
     <repositories>
         <repository>

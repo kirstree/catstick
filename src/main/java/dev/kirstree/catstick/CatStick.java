@@ -2,7 +2,6 @@ package dev.kirstree.catstick;
 
 import dev.kirstree.catstick.handlers.Events;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class CatStick extends JavaPlugin {
