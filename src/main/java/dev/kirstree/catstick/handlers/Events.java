@@ -42,13 +42,10 @@ public class Events implements Listener {
                         event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
             Location loc = player.getLocation();
-            Cat blackcat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            blackcat.setCatType(Cat.Type.ALL_BLACK);
-            blackcat.setCustomName(ChatColor.DARK_PURPLE + "EDDIE");
-            blackcat.setCustomNameVisible(true);
-            blackcat.setVelocity(new Vector(3 , 0 , 3));
-            blackcat.getWorld().createExplosion(blackcat.getLocation(), 2);
-            blackcat.setNoDamageTicks(0);
+            Cat spawnCat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
+            spawnCat.setVelocity(new Vector(3 , 0 , 3));
+            spawnCat.getWorld().createExplosion(spawnCat.getLocation(), 2);
+            spawnCat.setNoDamageTicks(0);
 
         }
 
@@ -56,6 +53,8 @@ public class Events implements Listener {
                 event.getAction().equals(Action.LEFT_CLICK_AIR)
                 || player.getInventory().getItemInMainHand().getType()
                         == Material.STICK && event.getAction().equals(Action.LEFT_CLICK_BLOCK)){
+
+
 
 
         }
