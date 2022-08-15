@@ -3,7 +3,6 @@ package dev.kirstree.catstick.handlers;
 import dev.kirstree.catstick.CatStick;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.enchantments.EnchantmentWrapper;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,10 +17,6 @@ import org.bukkit.util.Vector;
 
 
 public class Events implements Listener {
-
-
-
-
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -39,6 +34,8 @@ public class Events implements Listener {
         Catstick.setItemMeta(meta);
 
         inv.setItem(4, Catstick);
+
+        Bukkit.getLogger().info("Catstick is being given");
     }
 
     @EventHandler
@@ -51,19 +48,23 @@ public class Events implements Listener {
                         event.getAction().equals(Action.LEFT_CLICK_AIR)) {
 
             Location loc = player.getLocation();
-            Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            cat.setVelocity(new Vector(3 , 0 , 3));
-            cat.getWorld().createExplosion(cat.getLocation(), 2);
-            cat.setNoDamageTicks(0);
-            cat.setCatType(CatStick.catType);
+            Cat catType = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
+            catType.setVelocity(new Vector(3 , 0 , 3));
+
+            Bukkit.getLogger().info("Cat being fired");
+
         }
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
                 event.getAction().equals(Action.RIGHT_CLICK_AIR)
                 || player.getInventory().getItemInMainHand().getType()
                         == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
+
+            Bukkit.getLogger().info("Right Click is being clicked");
+
             CatGUI.gui(player);
-            //need to add someway to click stick to make it open GUI
+
+            Bukkit.getLogger().info("GUI is being run?");
 
         }
     }
@@ -75,21 +76,59 @@ public class Events implements Listener {
             Player p = (Player) e.getWhoClicked();
 
             switch (e.getSlot()){
-
                 case 21:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.BRITISH_SHORTHAIR;
                     break;
                 }
-
                 case 22:{
                     p.closeInventory();
-                    //more cat stuff
+                    CatStick.catType = Cat.Type.JELLIE;
                     break;
                 }
-
-                //add rest of cases when im not feeling lazy
+                case 23:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.ALL_BLACK;
+                    break;
+                }
+                case 24:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.RAGDOLL;
+                    break;
+                }
+                case 25:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.TABBY;
+                    break;
+                }
+                case 30:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.CALICO;
+                    break;
+                }
+                case 31:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.RED;
+                    break;
+                }
+                case 32:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.PERSIAN;
+                    break;
+                }
+                case 33:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.WHITE;
+                    break;
+                }
+                case 34:{
+                    p.closeInventory();
+                    CatStick.catType = Cat.Type.SIAMESE;
+                    break;
+                }
             }
+        }else {
+            e.setCancelled(true);
         }
     }
 }

@@ -18,7 +18,7 @@ public class CatGUI {
 
     public static void gui(Player p){
 
-        catGUI = Bukkit.createInventory(null, 63, ChatColor.DARK_PURPLE + "Pick a cat!");
+        catGUI = Bukkit.createInventory(null, 54, ChatColor.DARK_PURPLE + "Pick a cat!");
 
         ItemStack blackCat = new ItemStack(Material.PURPLE_CONCRETE, 1);
         ItemMeta blackCatMeta = blackCat.getItemMeta();
@@ -74,12 +74,6 @@ public class CatGUI {
         ragdollCatMeta.setDisplayName(ChatColor.RED + "Edith");
         ragdollCat.setItemMeta(ragdollCatMeta);
 
-        ItemStack tuxedoCat = new ItemStack(Material.RED_CONCRETE, 1);
-        ItemMeta tuxedoCatMeta = tuxedoCat.getItemMeta();
-        assert tuxedoCatMeta != null;
-        tuxedoCatMeta.setDisplayName(ChatColor.DARK_RED + "Edna");
-        tuxedoCat.setItemMeta(tuxedoCatMeta);
-
         ItemStack bShortCat = new ItemStack(Material.BROWN_CONCRETE, 1);
         ItemMeta bShortCatMeta = bShortCat.getItemMeta();
         assert bShortCatMeta != null;
@@ -87,15 +81,14 @@ public class CatGUI {
         bShortCat.setItemMeta(bShortCatMeta);
 
         catGUI.setItem(21, bShortCat);
-        catGUI.setItem(22, tuxedoCat);
+        catGUI.setItem(22, jellieCat);
         catGUI.setItem(23, blackCat);
         catGUI.setItem(24, ragdollCat);
-        catGUI.setItem(25, oTabbyCat);
+        catGUI.setItem(25, tabbyCat);
         catGUI.setItem(30, calicoCat);
-        catGUI.setItem(31, tabbyCat);
+        catGUI.setItem(31, oTabbyCat);
         catGUI.setItem(32, persianCat);
         catGUI.setItem(33, whiteCat);
         catGUI.setItem(34, siameseCat);
-        catGUI.setItem(41, jellieCat);
     }
 }
