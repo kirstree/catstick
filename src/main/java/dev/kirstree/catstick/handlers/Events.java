@@ -18,8 +18,6 @@ import org.bukkit.util.Vector;
 
 public class Events implements Listener {
 
-
-
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
@@ -36,8 +34,6 @@ public class Events implements Listener {
         Catstick.setItemMeta(meta);
 
         inv.setItem(4, Catstick);
-
-        Bukkit.getLogger().info("Catstick is being given");
     }
 
     @EventHandler
@@ -52,14 +48,10 @@ public class Events implements Listener {
             Location loc = player.getLocation();
             Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
             cat.setCatType(CatStick.catType);
-            Vector direction = player.getLocation().getDirection(); // should shoot cat in direction player is looking
+            Vector direction = player.getLocation().getDirection();
             int speed = 3;
             Vector velocity = direction.normalize().multiply(speed);
             cat.setVelocity(velocity);
-            //catType.setVelocity(new Vector(3 , 0 , 3));
-
-            Bukkit.getLogger().info("Cat being fired");
-
         }
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
@@ -67,12 +59,7 @@ public class Events implements Listener {
                 || player.getInventory().getItemInMainHand().getType()
                         == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 
-            Bukkit.getLogger().info("Right Click is being clicked");
-
             CatGUI.gui(player);
-
-            Bukkit.getLogger().info("Catstick is being given");
-
         }
     }
 
@@ -83,52 +70,52 @@ public class Events implements Listener {
             Player p = (Player) e.getWhoClicked();
 
             switch (e.getSlot()){
-                case 21:{
+                case 20:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.BRITISH_SHORTHAIR;
                     break;
                 }
-                case 22:{
+                case 21:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.JELLIE;
                     break;
                 }
-                case 23:{
+                case 22:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.ALL_BLACK;
                     break;
                 }
-                case 24:{
+                case 23:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.RAGDOLL;
                     break;
                 }
-                case 25:{
+                case 24:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.TABBY;
                     break;
                 }
-                case 30:{
+                case 29:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.CALICO;
                     break;
                 }
-                case 31:{
+                case 30:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.RED;
                     break;
                 }
-                case 32:{
+                case 31:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.PERSIAN;
                     break;
                 }
-                case 33:{
+                case 32:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.WHITE;
                     break;
                 }
-                case 34:{
+                case 33:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.SIAMESE;
                     break;

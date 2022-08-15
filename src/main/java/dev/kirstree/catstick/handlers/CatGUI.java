@@ -17,9 +17,8 @@ public class CatGUI {
     public static Inventory getCatGUI(){
         return catGUI;
     }
-    public static void gui(Player p){ //moved this all into this class to see if we can run as private function obviously this is less than ideal though
+    public static void gui(Player p){
 
-        Bukkit.getLogger().info("GUI is being opened");
         catGUI = Bukkit.createInventory(null, 54, ChatColor.DARK_PURPLE + "Pick a cat!");
 
         ItemStack blackCat = new ItemStack(Material.PURPLE_CONCRETE, 1);
@@ -82,21 +81,17 @@ public class CatGUI {
         bShortCatMeta.setDisplayName(ChatColor.GOLD + "Edwina");
         bShortCat.setItemMeta(bShortCatMeta);
 
-        catGUI.setItem(21, bShortCat);
-        catGUI.setItem(22, jellieCat);
-        catGUI.setItem(23, blackCat);
-        catGUI.setItem(24, ragdollCat);
-        catGUI.setItem(25, tabbyCat);
-        catGUI.setItem(30, calicoCat);
-        catGUI.setItem(31, oTabbyCat);
-        catGUI.setItem(32, persianCat);
-        catGUI.setItem(33, whiteCat);
-        catGUI.setItem(34, siameseCat);
-
-        Bukkit.getLogger().info("GUI is fully initialized");
+        catGUI.setItem(20, bShortCat);
+        catGUI.setItem(21, jellieCat);
+        catGUI.setItem(22, blackCat);
+        catGUI.setItem(23, ragdollCat);
+        catGUI.setItem(24, tabbyCat);
+        catGUI.setItem(29, calicoCat);
+        catGUI.setItem(30, oTabbyCat);
+        catGUI.setItem(31, persianCat);
+        catGUI.setItem(32, whiteCat);
+        catGUI.setItem(33, siameseCat);
 
         p.openInventory(catGUI);
     }
-
-
 }
