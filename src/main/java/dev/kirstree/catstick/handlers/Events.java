@@ -18,6 +18,8 @@ import org.bukkit.util.Vector;
 
 import java.util.Objects;
 
+import java.util.UUID;
+
 
 public class Events implements Listener {
 
@@ -55,17 +57,7 @@ public class Events implements Listener {
             int speed = 3;
             Vector velocity = direction.normalize().multiply(speed);
             cat.setVelocity(velocity);
-
-            public static void startTimer(Cat cat) {
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        Location loc = cat.getLocation().clone();
-                        cat.remove();
-                        Objects.requireNonNull(loc.getWorld()).createExplosion(loc, 1f);
-                    }
-                }.runTaskLater(CatStick.getInstance(), 10L);
-            }
+            startTimer(cat);
 
         }
 
@@ -76,6 +68,17 @@ public class Events implements Listener {
 
             CatGUI.gui(player);
         }
+    }
+
+    public void startTimer(Cat cat) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Location loc = cat.getLocation().clone();
+                cat.remove();
+                Objects.requireNonNull(loc.getWorld()).createExplosion(loc, 1f);
+            }
+        }.runTaskLater(CatStick.getInstance(), 10L);
     }
 
     @EventHandler
