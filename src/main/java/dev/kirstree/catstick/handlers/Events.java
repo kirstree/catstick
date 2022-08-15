@@ -1,5 +1,6 @@
 package dev.kirstree.catstick.handlers;
 
+import dev.kirstree.catstick.CatStick;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentWrapper;
@@ -18,7 +19,9 @@ import org.bukkit.util.Vector;
 
 public class Events implements Listener {
 
-    public Cat catType = catType.setCatType(Cat.Type.ALL_BLACK); // default variable but is also wrong?
+
+
+
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
@@ -75,7 +78,7 @@ public class Events implements Listener {
 
                 case 21:{
                     p.closeInventory();
-                    catType.setCatType(Cat.Type.BRITISH_SHORTHAIR);
+                    CatStick.catType.setCatType(Cat.Type.BRITISH_SHORTHAIR);
                     break;
                 }
 
