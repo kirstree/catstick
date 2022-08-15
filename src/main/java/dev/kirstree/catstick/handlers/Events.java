@@ -17,6 +17,9 @@ import org.bukkit.util.Vector;
 
 
 public class Events implements Listener {
+
+    public Cat catType = catType.setCatType(Cat.Type.ALL_BLACK); // default variable but is also wrong?
+
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
@@ -45,10 +48,10 @@ public class Events implements Listener {
                         event.getAction().equals(Action.LEFT_CLICK_AIR)) {
 
             Location loc = player.getLocation();
-            Cat spawnCat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            spawnCat.setVelocity(new Vector(3 , 0 , 3));
-            spawnCat.getWorld().createExplosion(spawnCat.getLocation(), 2);
-            spawnCat.setNoDamageTicks(0);
+            Cat catType = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
+            catType.setVelocity(new Vector(3 , 0 , 3));
+            catType.getWorld().createExplosion(catType.getLocation(), 2);
+            catType.setNoDamageTicks(0);
 
         }
 
@@ -57,8 +60,7 @@ public class Events implements Listener {
                 || player.getInventory().getItemInMainHand().getType()
                         == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
 
-
-
+            //need to add someway to click stick to make it open GUI
 
         }
     }
@@ -73,14 +75,17 @@ public class Events implements Listener {
 
                 case 21:{
                     p.closeInventory();
+                    catType.setCatType(Cat.Type.BRITISH_SHORTHAIR);
                     break;
                 }
 
                 case 22:{
                     p.closeInventory();
                     //more cat stuff
-
+                    break;
                 }
+
+                //add rest of cases when im not feeling lazy
             }
         }
     }
