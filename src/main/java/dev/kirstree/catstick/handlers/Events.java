@@ -48,8 +48,13 @@ public class Events implements Listener {
                         event.getAction().equals(Action.LEFT_CLICK_AIR)) {
 
             Location loc = player.getLocation();
-            Cat catType = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            catType.setVelocity(new Vector(3 , 0 , 3));
+            Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
+            cat.setCatType(CatStick.catType);
+            Vector direction = player.getLocation().getDirection(); // should shoot cat in direction player is looking
+            int speed = 3;
+            Vector velocity = direction.normalize().multiply(speed);
+            cat.setVelocity(velocity);
+            //catType.setVelocity(new Vector(3 , 0 , 3));
 
             Bukkit.getLogger().info("Cat being fired");
 
