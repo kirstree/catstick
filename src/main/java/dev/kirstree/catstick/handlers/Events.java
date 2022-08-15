@@ -51,11 +51,11 @@ public class Events implements Listener {
                         event.getAction().equals(Action.LEFT_CLICK_AIR)) {
 
             Location loc = player.getLocation();
-            Cat catType = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            catType.setVelocity(new Vector(3 , 0 , 3));
-            catType.getWorld().createExplosion(catType.getLocation(), 2);
-            catType.setNoDamageTicks(0);
-
+            Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
+            cat.setVelocity(new Vector(3 , 0 , 3));
+            cat.getWorld().createExplosion(cat.getLocation(), 2);
+            cat.setNoDamageTicks(0);
+            cat.setCatType(CatStick.catType);
         }
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
@@ -78,7 +78,7 @@ public class Events implements Listener {
 
                 case 21:{
                     p.closeInventory();
-                    CatStick.catType.setCatType(Cat.Type.BRITISH_SHORTHAIR);
+                    CatStick.catType = Cat.Type.BRITISH_SHORTHAIR;
                     break;
                 }
 
