@@ -64,7 +64,7 @@ public class Events implements Listener {
 
             CatGUI.gui(player);
 
-            Bukkit.getLogger().info("GUI is being run?");
+            Bukkit.getLogger().info("Catstick is being given");
 
         }
     }
