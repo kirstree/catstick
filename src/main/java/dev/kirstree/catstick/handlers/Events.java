@@ -62,7 +62,7 @@ public class Events implements Listener {
                 event.getAction().equals(Action.RIGHT_CLICK_AIR)
                 || player.getInventory().getItemInMainHand().getType()
                         == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
-
+            CatGUI.gui(player);
             //need to add someway to click stick to make it open GUI
 
         }
