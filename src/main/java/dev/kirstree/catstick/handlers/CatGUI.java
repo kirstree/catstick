@@ -10,13 +10,12 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class CatGUI {
 
-
     private static Inventory catGUI;
-
 
     public static Inventory getCatGUI(){
         return catGUI;
     }
+
     public static void gui(Player p){
 
         catGUI = Bukkit.createInventory(null, 54, ChatColor.DARK_PURPLE + "Pick a cat!");
