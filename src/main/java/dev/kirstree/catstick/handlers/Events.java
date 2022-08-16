@@ -136,8 +136,6 @@ public class Events implements Listener {
                     break;
                 }
             }
-        }else {
-            e.setCancelled(true);
         }
     }
 }

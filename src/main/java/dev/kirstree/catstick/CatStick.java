@@ -31,5 +31,4 @@ public class CatStick extends JavaPlugin {
     public void onDisable() {
         Bukkit.getLogger().info("CatStick shutting down...");
     }
-
 }
