@@ -16,11 +16,22 @@ public class CatStick extends JavaPlugin {
     public static HashMap<UUID, Cat.Type> selectedTypes = new HashMap<UUID, Cat.Type>();
     public static HashMap<Integer, CatGUI.CatType> catTypes = new HashMap<Integer, CatGUI.CatType>();
 
+    public static CatStick instance;
+
+    public static CatStick getInstance(){
+        return instance;
+    }
+
+    public static void setInstance(CatStick instance){
+        CatStick.instance = instance;
+    }
+
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("CatStick enabling...");
         CatGUI.initGUI();
         catType = Cat.Type.ALL_BLACK;
+        setInstance(this);
         Bukkit.getPluginManager().registerEvents(new Events(), this);
     }
 
@@ -28,5 +39,4 @@ public class CatStick extends JavaPlugin {
     public void onDisable() {
         Bukkit.getLogger().info("CatStick shutting down...");
     }
-
 }

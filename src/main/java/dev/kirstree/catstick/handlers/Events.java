@@ -13,7 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
+import java.util.Objects;
 
 
 public class Events implements Listener {
@@ -58,6 +60,8 @@ public class Events implements Listener {
             int speed = 3;
             Vector velocity = direction.normalize().multiply(speed);
             cat.setVelocity(velocity);
+            startTimer(cat);
+
         }
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
@@ -67,6 +71,17 @@ public class Events implements Listener {
 
             CatGUI.gui(player);
         }
+    }
+
+    public void startTimer(Cat cat) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Location loc = cat.getLocation().clone();
+                cat.remove();
+                Objects.requireNonNull(loc.getWorld()).createExplosion(loc, 1f);
+            }
+        }.runTaskLater(CatStick.getInstance(), 10L);
     }
 
     @EventHandler
@@ -143,9 +158,13 @@ public class Events implements Listener {
                     CatStick.catType = Cat.Type.SIAMESE;
                     break;
                 }
+<<<<<<< HEAD
             }*/
         } else {
             e.setCancelled(true);
+=======
+            }
+>>>>>>> origin/main
         }
     }
 }
