@@ -47,7 +47,7 @@ public class Events implements Listener {
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
                 event.getAction().equals(Action.LEFT_CLICK_AIR) ||
                 player.getInventory().getItemInMainHand().getType() == Material.STICK &&
-                        event.getAction().equals(Action.LEFT_CLICK_AIR)) {
+                        event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
 
             Location loc = player.getLocation();
             Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
@@ -57,17 +57,16 @@ public class Events implements Listener {
             }
             cat.setCatType(CatStick.selectedTypes.get(player.getUniqueId()));
             Vector direction = player.getLocation().getDirection();
-            int speed = 3;
+            double speed = 1.6d;
             Vector velocity = direction.normalize().multiply(speed);
             cat.setVelocity(velocity);
             startTimer(cat);
-
         }
 
         if (player.getInventory().getItemInMainHand().getType() == Material.STICK &&
                 event.getAction().equals(Action.RIGHT_CLICK_AIR)
                 || player.getInventory().getItemInMainHand().getType()
-                        == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_AIR)){
+                        == Material.STICK && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)){
 
             CatGUI.gui(player);
         }
@@ -85,7 +84,7 @@ public class Events implements Listener {
     }
 
     @EventHandler
-    public void inventoryClick(InventoryClickEvent e){
+    public void inventoryClick(InventoryClickEvent e) {
 
         if(e.getInventory() == (CatGUI.getCatGUI())) {
             Player p = (Player) e.getWhoClicked();
@@ -106,65 +105,8 @@ public class Events implements Listener {
             else {
                 e.setCancelled(true);
             }
-
-            /*switch (e.getSlot()){
-                case 20:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.BRITISH_SHORTHAIR;
-                    break;
-                }
-                case 21:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.JELLIE;
-                    break;
-                }
-                case 22:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.ALL_BLACK;
-                    break;
-                }
-                case 23:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.RAGDOLL;
-                    break;
-                }
-                case 24:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.TABBY;
-                    break;
-                }
-                case 29:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.CALICO;
-                    break;
-                }
-                case 30:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.RED;
-                    break;
-                }
-                case 31:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.PERSIAN;
-                    break;
-                }
-                case 32:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.WHITE;
-                    break;
-                }
-                case 33:{
-                    p.closeInventory();
-                    CatStick.catType = Cat.Type.SIAMESE;
-                    break;
-                }
-<<<<<<< HEAD
-            }*/
         } else {
             e.setCancelled(true);
-=======
-            }
->>>>>>> origin/main
         }
     }
 }
