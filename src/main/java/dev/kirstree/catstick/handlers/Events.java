@@ -24,19 +24,21 @@ public class Events implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        ItemStack Catstick = new ItemStack(Material.STICK, 1);
+        ItemStack catStick = new ItemStack(Material.STICK, 1);
         Inventory inv = player.getInventory();
 
-        ItemMeta meta = Catstick.getItemMeta();
+        ItemMeta meta = catStick.getItemMeta();
         assert meta != null;
         meta.setDisplayName(ChatColor.RED + ChatColor.BOLD.toString() + "Catstick");
         meta.addEnchant(Enchantment.LUCK, 2, false);
         meta.isUnbreakable();
 
-        Catstick.setItemMeta(meta);
+        catStick.setItemMeta(meta);
 
-        inv.setItem(4, Catstick);
+        inv.setItem(4, catStick);
     }
+
+    //add explosion event
 
     @EventHandler
     public void onPlayerInteraction(PlayerInteractEvent event) {
@@ -49,7 +51,11 @@ public class Events implements Listener {
 
             Location loc = player.getLocation();
             Cat cat = (Cat) player.getWorld().spawnEntity(loc, EntityType.CAT);
-            cat.setCatType(CatStick.catType);
+            //cat.setCatType(CatStick.catType);
+            if(!CatStick.selectedTypes.containsKey(player.getUniqueId())) {
+                CatStick.selectedTypes.put(player.getUniqueId(), Cat.Type.ALL_BLACK);
+            }
+            cat.setCatType(CatStick.selectedTypes.get(player.getUniqueId()));
             Vector direction = player.getLocation().getDirection();
             int speed = 3;
             Vector velocity = direction.normalize().multiply(speed);
@@ -81,10 +87,27 @@ public class Events implements Listener {
     @EventHandler
     public void inventoryClick(InventoryClickEvent e){
 
-        if(e.getInventory() == (CatGUI.getCatGUI())){
+        if(e.getInventory() == (CatGUI.getCatGUI())) {
             Player p = (Player) e.getWhoClicked();
 
-            switch (e.getSlot()){
+            if(CatStick.catTypes.containsKey(e.getSlot())) {
+                p.closeInventory();
+                //CatStick.catType = CatStick.catTypes.get(e.getSlot()).type;
+                if(CatStick.selectedTypes !=null ) {
+                    if(CatStick.selectedTypes.containsKey(p.getUniqueId())){
+                        CatStick.selectedTypes.remove(p.getUniqueId());
+                        CatStick.selectedTypes.put(p.getUniqueId(), CatStick.catTypes.get(e.getSlot()).type);
+                    }
+                    else {
+                        CatStick.selectedTypes.put(p.getUniqueId(), CatStick.catTypes.get(e.getSlot()).type);
+                    }
+                }
+            }
+            else {
+                e.setCancelled(true);
+            }
+
+            /*switch (e.getSlot()){
                 case 20:{
                     p.closeInventory();
                     CatStick.catType = Cat.Type.BRITISH_SHORTHAIR;
@@ -135,7 +158,13 @@ public class Events implements Listener {
                     CatStick.catType = Cat.Type.SIAMESE;
                     break;
                 }
+<<<<<<< HEAD
+            }*/
+        } else {
+            e.setCancelled(true);
+=======
             }
+>>>>>>> origin/main
         }
     }
 }
