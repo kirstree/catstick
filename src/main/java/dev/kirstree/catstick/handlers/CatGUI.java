@@ -19,6 +19,21 @@ public class CatGUI {
 
     private static Inventory catGUI;
 
+    public static void initGUI() {
+
+        CatType bshort = new CatType("Edwina",20,Cat.Type.BRITISH_SHORTHAIR, Material.BROWN_CONCRETE, ChatColor.GOLD);
+        CatType jellie = new CatType("Eduardo",21,Cat.Type.JELLIE, Material.MAGENTA_CONCRETE, ChatColor.LIGHT_PURPLE);
+        CatType black = new CatType("Eddie",22,Cat.Type.ALL_BLACK, Material.PURPLE_CONCRETE, ChatColor.DARK_PURPLE);
+        CatType ragdoll = new CatType("Edith",23,Cat.Type.RAGDOLL, Material.ORANGE_CONCRETE, ChatColor.RED);
+        CatType tabby = new CatType("Edmundo",24,Cat.Type.TABBY, Material.LIGHT_BLUE_CONCRETE, ChatColor.AQUA);
+        CatType calico = new CatType("Edward",29,Cat.Type.CALICO, Material.CYAN_CONCRETE, ChatColor.DARK_AQUA);
+        CatType red = new CatType("Eddison",30,Cat.Type.RED, Material.BLUE_CONCRETE, ChatColor.DARK_BLUE);
+        CatType persian = new CatType("Edgar",31,Cat.Type.PERSIAN, Material.GREEN_CONCRETE, ChatColor.DARK_GREEN);
+        CatType white = new CatType("Edmund",32,Cat.Type.WHITE, Material.YELLOW_CONCRETE, ChatColor.YELLOW);
+        CatType siamese = new CatType("Edwin",33,Cat.Type.SIAMESE, Material.LIME_CONCRETE, ChatColor.GREEN);
+
+
+    }
 
     public static Inventory getCatGUI(){
         return catGUI;
@@ -87,16 +102,6 @@ public class CatGUI {
         bShortCatMeta.setDisplayName(ChatColor.GOLD + "Edwina");
         bShortCat.setItemMeta(bShortCatMeta);*/
 
-        CatType bshort = new CatType("Edwina",20,Cat.Type.BRITISH_SHORTHAIR, Material.BROWN_CONCRETE, ChatColor.GOLD);
-        CatType jellie = new CatType("Eduardo",21,Cat.Type.JELLIE, Material.MAGENTA_CONCRETE, ChatColor.LIGHT_PURPLE);
-        CatType black = new CatType("Eddie",22,Cat.Type.ALL_BLACK, Material.PURPLE_CONCRETE, ChatColor.DARK_PURPLE);
-        CatType ragdoll = new CatType("Edith",23,Cat.Type.RAGDOLL, Material.ORANGE_CONCRETE, ChatColor.RED);
-        CatType tabby = new CatType("Edmundo",24,Cat.Type.TABBY, Material.LIGHT_BLUE_CONCRETE, ChatColor.AQUA);
-        CatType calico = new CatType("Edward",29,Cat.Type.CALICO, Material.CYAN_CONCRETE, ChatColor.DARK_AQUA);
-        CatType red = new CatType("Eddison",30,Cat.Type.RED, Material.BLUE_CONCRETE, ChatColor.DARK_BLUE);
-        CatType persian = new CatType("Edgar",31,Cat.Type.PERSIAN, Material.GREEN_CONCRETE, ChatColor.DARK_GREEN);
-        CatType white = new CatType("Edmund",32,Cat.Type.WHITE, Material.YELLOW_CONCRETE, ChatColor.YELLOW);
-        CatType siamese = new CatType("Edwin",33,Cat.Type.SIAMESE, Material.LIME_CONCRETE, ChatColor.GREEN);
 
         for(int i = 0; i < 54; i++) {
             if(CatStick.catTypes.containsKey(i)){

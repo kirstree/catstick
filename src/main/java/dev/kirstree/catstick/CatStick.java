@@ -13,12 +13,13 @@ import java.util.UUID;
 public class CatStick extends JavaPlugin {
 
     public static Cat.Type catType;
-    public static HashMap<UUID, Cat.Type> selectedTypes;
-    public static HashMap<Integer, CatGUI.CatType> catTypes;
+    public static HashMap<UUID, Cat.Type> selectedTypes = new HashMap<UUID, Cat.Type>();
+    public static HashMap<Integer, CatGUI.CatType> catTypes = new HashMap<Integer, CatGUI.CatType>();
 
     @Override
     public void onEnable() {
         Bukkit.getLogger().info("CatStick enabling...");
+        CatGUI.initGUI();
         catType = Cat.Type.ALL_BLACK;
         Bukkit.getPluginManager().registerEvents(new Events(), this);
     }

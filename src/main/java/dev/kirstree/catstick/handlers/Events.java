@@ -36,6 +36,8 @@ public class Events implements Listener {
         inv.setItem(4, catStick);
     }
 
+    //add explosion event
+
     @EventHandler
     public void onPlayerInteraction(PlayerInteractEvent event) {
         Player player = event.getPlayer();
