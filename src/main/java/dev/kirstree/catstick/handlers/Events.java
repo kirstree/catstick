@@ -105,8 +105,6 @@ public class Events implements Listener {
             else {
                 e.setCancelled(true);
             }
-        } else {
-            e.setCancelled(true);
         }
     }
 }

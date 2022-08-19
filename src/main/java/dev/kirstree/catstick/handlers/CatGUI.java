@@ -64,7 +64,7 @@ public class CatGUI {
         ItemStack itemstack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta meta = itemstack.getItemMeta();
         assert meta != null;
-        meta.setDisplayName("");
+        meta.setDisplayName(ChatColor.MAGIC + "----");
         itemstack.setItemMeta(meta);
         return itemstack;
     }
